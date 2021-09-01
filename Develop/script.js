@@ -11,14 +11,18 @@ function setBackground() {
         currentTime = +currentTime
         console.log("rowTime", rowTime)
         console.log("currentTime", currentTime)
-        
+        console.log(timeBlockTime)
+
+
         if (rowTime < currentTime){
-            console.log("hello")
+            data = timeBlockTime[i].nextElementSibling.closest("textarea")
+            data.classList.add("past")
         } else if (rowTime === currentTime) {
-            console.log("lunchtimebby")
-            timeBlockTime.closest(textArea).css({"background-color": "red;"})
+            data = timeBlockTime[i].nextElementSibling.closest("textarea")
+            data.classList.add("present")
         } else {
-            console.log("Awh")
+            data = timeBlockTime[i].nextElementSibling.closest("textarea")
+            data.classList.add("future")
         }
 
 }
