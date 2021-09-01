@@ -1,17 +1,27 @@
 timeEl = $("#currentDay")
-timeBlockTime = $('.hour') //returns an array, can grab current time with timeBlockTime[i].innerHTML
-// timeArray = 
-
+timeBlockTime = $('.hour') //returns an array, can grab current time with timeBlockTime
+textArea = $(".textarea")
+currentTime = moment().format("k");
 
 function setBackground() {
     for(i=0; i<timeBlockTime.length; i++) {
-        console.log(timeBlockTime[i].innerHTML)
         rowTime = timeBlockTime[i].innerHTML
-        rowTime = moment(rowTime, "h, A" ).format("h A")
-        console.log(rowTime)
+        rowTime = moment(rowTime, "h, A" ).format("k")
+        rowTime = +rowTime
+        currentTime = +currentTime
+        console.log("rowTime", rowTime)
+        console.log("currentTime", currentTime)
+        
+        if (rowTime < currentTime){
+            console.log("hello")
+        } else if (rowTime === currentTime) {
+            console.log("lunchtimebby")
+            timeBlockTime.closest(textArea).css({"background-color": "red;"})
+        } else {
+            console.log("Awh")
+        }
 
-    }
-
+}
 }
 
 
@@ -22,7 +32,6 @@ function setBackground() {
 
 
 
-console.log(timeBlockTime)
 // console.log(timeArray)
 
 
