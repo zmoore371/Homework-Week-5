@@ -11,7 +11,6 @@ function setBackground() {
         rowTime = moment(rowTime, "h, A" ).format("k")
         rowTime = +rowTime
         currentTime = +currentTime
-
         if (rowTime < currentTime){
             data = timeBlockTime[i].nextElementSibling.closest("textarea")
             data.classList.add("past")
@@ -30,19 +29,15 @@ function setBackground() {
 function saveToLocal () {
     //textArea is an array. we can likely save just that to local storage and sort it back to screen
     textArea = textArea.text();
-
+    console.log(textArea)
     localStorage.setItem("todo", JSON.stringify(textArea))
+    init();
 }
 
 saveBtn.on("click", function(event) {
     saveToLocal();
     console.log('Hello')
 })
-
-
-
-
-
 
 
 function updateTime() {
