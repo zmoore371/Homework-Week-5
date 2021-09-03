@@ -1,8 +1,8 @@
-timeEl = $("#currentDay")
-timeBlockTime = $('.hour') //returns an array, can grab current time with timeBlockTime[i] in loop
-textArea = $(".textarea")
-currentTime = moment().format("k"); // use military time to compare instead of 12 hour. This way instead of having to use moment functions / methods you can just compare with regular logic operators
-saveBtn = $(".saveBtn")
+timeEl = $("#currentDay");
+timeBlockTime = $('.hour');
+textArea = $(".textarea");
+currentTime = moment().format("k"); 
+saveBtn = $(".saveBtn");
 
 
 function setBackground() {
@@ -24,45 +24,46 @@ function setBackground() {
 }
 }
 
-// not calling this function yet. will need to after accuratly storing data from text area
-function saveToLocal () {
-    //textArea is an array. we can likely save just that to local storage and sort it back to screen
-    textArea = textArea.text();
-    console.log(textArea)
-    localStorage.setItem("todo", JSON.stringify(textArea))
-    init();
+function setTodos() {
+    todos = JSON.parse(localStorage.getItem("todo"))
+    console.log(todos)
+    
+    if (todos !== null) { //this keeps the javascript from f'in up if nothing has ever been saved to the local storage
+    for(i=0; i<textArea.length; i++) {
+        textArea[i].value = todos[i]
+        console.log(todos)
+    }
+    } else {
+        return;
+    }
+
 }
 
 saveBtn.on("click", function(event) {
-    event.preventDefault(); //not sure i need this, its a save button not submit so I dont think that it will clear the text area since it is not a form
-    // saveToLocal();
-    console.log('Hello')
-    console.log(textArea)
-
+    event.preventDefault();
     todos = [];
-
-
     for(i=0; i<textArea.length; i++) {
-    // data = textArea.val();// only returns value of text entered in the first text area
     data = textArea[i].value;
-    //returns TypeError: textArea[i]. val is not a function
     console.log(data)
     todos.push(data)
     }    
     localStorage.setItem("todo", JSON.stringify(todos))
-    console.log(todos)
+    
 })
-
 
 function updateTime() {
     timeEl.html(moment().format("ddd, MMMM Do hh:mm:ss"))
 }
 
-
-
 function init() {
+
+
+
+    setTodos();
     setInterval(updateTime, 1000)
     setBackground()
 }
 
+
+// textArea[1].value = "hello"
 init();
