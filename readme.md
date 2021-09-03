@@ -15,6 +15,6 @@ The application is fairly simple to use. The clock at the top is the current tim
 
 ## Links
 
-[Link to deployed application via Github pages]("https://zmoore371.github.io/Homework-Week-5/")
+[Link to deployed application via Github pages](https://zmoore371.github.io/Homework-Week-5/)
 
-[Link to Github repository]("https://github.com/zmoore371/Homework-Week-5")
+[Link to Github repository](https://github.com/zmoore371/Homework-Week-5)
