@@ -38,12 +38,19 @@ saveBtn.on("click", function(event) {
     // saveToLocal();
     console.log('Hello')
     console.log(textArea)
+
+    todos = [];
+
+
     for(i=0; i<textArea.length; i++) {
     // data = textArea.val();// only returns value of text entered in the first text area
     data = textArea[i].value;
     //returns TypeError: textArea[i]. val is not a function
     console.log(data)
+    todos.push(data)
     }    
+    localStorage.setItem("todo", JSON.stringify(todos))
+    console.log(todos)
 })
 
 
