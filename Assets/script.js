@@ -4,7 +4,6 @@ textArea = $(".textarea");
 currentTime = moment().format("k"); 
 saveBtn = $(".saveBtn");
 
-
 function setBackground() {
     for(i=0; i<timeBlockTime.length; i++) {
         rowTime = timeBlockTime[i].innerHTML
@@ -26,12 +25,10 @@ function setBackground() {
 
 function setTodos() {
     todos = JSON.parse(localStorage.getItem("todo"))
-    console.log(todos)
-    
+
     if (todos !== null) { //this keeps the javascript from f'in up if nothing has ever been saved to the local storage
     for(i=0; i<textArea.length; i++) {
-        textArea[i].value = todos[i]
-        console.log(todos)
+        textArea[i].value = todos[i];
     }
     } else {
         return;
@@ -56,14 +53,11 @@ function updateTime() {
 }
 
 function init() {
-
-
-
     setTodos();
     setInterval(updateTime, 1000)
     setBackground()
 }
 
 
-// textArea[1].value = "hello"
+// textArea[1].value = "hello" Left this in here for reference on how to set text area value. Im sure it will come in handy in  the future. Not relevant to the program at all.
 init();
