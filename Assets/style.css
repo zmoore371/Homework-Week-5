@@ -24,9 +24,9 @@ textarea {
   border-bottom: 10px solid black;
 }
 
-.description {
+/* .description {
   white-space: pre-wrap;
-}
+} */
 
 .time-block {
   text-align: center;
@@ -37,7 +37,6 @@ textarea {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
-
   display: flex;
 }
 
@@ -93,3 +92,7 @@ textarea {
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+footer{
+  height: 100px;
+}
